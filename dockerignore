@@ -1,0 +1,4 @@
+target/
+maven/
+docker-compose.yml
+.dockerignore

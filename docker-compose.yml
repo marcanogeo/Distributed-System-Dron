@@ -1,0 +1,22 @@
+version: '3'
+services:
+  emqx:
+    image: emqx:latest
+    container_name: emqx
+    ports:
+        - "1883:1883"
+  drone:
+     image: mssde/drones:latest
+     container_name: drone
+     environment:
+        - BROKER_URL=tcp://emqx:1883
+        - REFRESH_MS=10000
+     ports:
+        - "8080:8080"
+     volumes:
+        - "./logs:/App/drones/logs"
+     depends_on:
+        - emqx
+     build:
+        context: .
+

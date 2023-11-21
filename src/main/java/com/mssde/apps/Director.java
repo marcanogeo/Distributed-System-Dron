@@ -166,7 +166,7 @@ public class Director {
         final int R = 6371; // Radius of the earth in km
         double dLat = toRadians(destLat - origLat);
         double dLon = toRadians(destLong - origLong);
-        double a = sin(dLat / 2) * sin(dLat / 2) +12
+        double a = sin(dLat / 2) * sin(dLat / 2) +
                         cos(toRadians(origLat)) * cos(toRadians(destLat)) *
                         sin(dLon / 2) * sin(dLon / 2);
         double c = 2 * atan2(sqrt(a), sqrt(1 - a));

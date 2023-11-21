@@ -1,0 +1,57 @@
+ 
+Necesitas tener sqlite instalado
+
+apt install -y sqlite3
+
+Necesitas un broker local, yo he usado el broker de emqx:
+
+docker run --name emqx -p 1833:1833 -d emqx
+
+Así ya tienes broker corriendo.
+
+Para compilarlo, en la consola, desde donde tienes descomprimido el código:
+
+mvn install -P director
+mvn install -P api
+mvn install -P drone
+
+Para correr el proyecto:
+
+Desde donde lo tengas comprimido, en la consola:
+
+java -jar target/drone-app.jar tcp://localhost:1883 drone_1 drone1 10000
+java -jar target/director-app.jar tcp://localhost:1883 director_1
+java -jar target/api-app.jar localhost 8080
+
+Cada uno en su consola, te pedirán cosas específicas como el broker.
+
+Si se abre con visual studio code, te dirá que instales el soporte de Java, dile que sí. Al abrir el pom.xml, te dirá que instales el soporte de Redhat de dependencias, dile que sí. Ya te instalará todas las dependencias en el IDE para trabajar.
+
+Eclipse lo gestiona todo él desde el pom.xml
+con postman, o insomnia, puedes crear un request para recogida enviando un post a http://localhost:8080. Por ejemplo, para recoger en La Paz y enviar al Carlos III:
+
+{
+    "origin_latlong": "40.487989,-3.6916459",
+    "dest_latlong": "40.474999,-3.695304",
+    "weight": 100
+}
+
+En headers, añade Content-Type con valor application/json
+Deberías recibir una respuesta como esta:
+
+{
+    "request_id": "8f9e762a-62b7-479f-843c-22148accf23d",
+    "status": "pending"
+}
+
+Entonces puedes enviar un GET a http://localhost:8080/status/8f9e762a-62b7-479f-843c-22148accf23d y te devolverá esto:
+
+{
+    "request_id": "8f9e762a-62b7-479f-843c-22148accf23d",
+    "origin_latlong": "40.487989,-3.6916459",
+    "dest_latlong": "40.474999,-3.695304",
+    "weight": 100,
+    "drone_id": null,
+    "curr_status": "pending",
+    "curr_latlong": null
+}
