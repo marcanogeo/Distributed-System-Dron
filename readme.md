@@ -5,10 +5,10 @@ En este caso, se tomó en cuenta que el dron, como dispositivo, también funcion
 
 Para levantar el proyecto en docker debe hacer esto:
 
-** docker build -t mssde/drones:latest .
+**docker build -t mssde/drones:latest .
 
 Luego,  
 
-** docker compose up -d
+**docker compose up -d
 
 Y tendrá todo corriendo
