@@ -1,14 +1,16 @@
-# Proyecto en Maven Java + Docker + sqlite + mqtt
-estructura Publisher/Subscriber usando el protocolo MQTT para realizar las publicaciones de los eventos de estado, por ejemplo, nivel de batería del dron y la ubicación, esta última expresada en coordenadas de latitud y longitud. De forma que el director de vuelo, quien también es un subscritor/publicador, pueda estar gestionando y monitorizando los vuelos que debe realizar el dispositivo aéreo. 
+# Maven Java + Docker + sqlite + mqtt Project
 
-En este caso, se tomó en cuenta que el dron, como dispositivo, también funciona como un publicador y subscritor, ya que debe estar enviando cada cierto tiempo su estado para así conocer su ruta y tener la posibilidad de rastreo en caso de pérdida de conexión con el dispositivo. Además de recibir comandos y solicitudes por parte del director de vuelo. 
+Publisher/Subscriber structure using the MQTT protocol to publish status events, such as the drone's battery level and location, the latter expressed in latitude and longitude coordinates. This allows the flight director, who is also a subscriber/publisher, to manage and monitor the flights that the aerial device must perform.
 
-Para levantar el proyecto en docker debe hacer esto:
+In this case, it was taken into account that the drone, as a device, also functions as a publisher and subscriber, since it must send its status every so often in order to know its route and be able to track it in case of loss of connection with the device. In addition to receiving commands and requests from the flight director.
 
-**docker build -t mssde/drones:latest .**
+To launch the project in Docker, you must do the following:
 
-Luego,  
+**docker build -t mssde/drones:latest**
+
+Then,
 
 **docker compose up -d**
 
-Y tendrá todo corriendo
+And you will have everything running.
+
