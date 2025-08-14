@@ -22,5 +22,5 @@ Oracle Java es el principal lenguaje de programación y plataforma de desarrollo
 
 ## 👀 Want to learn more?
 
-[Our documentation](https://www.java.com/es/)
+Read [Our documentation](https://www.java.com/es/)
 
