@@ -1,4 +1,4 @@
-# Maven Java + Docker + sqlite + mqtt Project
+# 💻 Maven Java + Docker + sqlite + mqtt Project
 
 Publisher/Subscriber structure using the MQTT protocol to publish status events, such as the drone's battery level and location, the latter expressed in latitude and longitude coordinates. This allows the flight director, who is also a subscriber/publisher, to manage and monitor the flights that the aerial device must perform.
 
@@ -13,4 +13,14 @@ Then,
 **docker compose up -d**
 
 And you will have everything running.
+
+# ⚙️ Tecnologies and tools used
+
+## Java 
+
+Oracle Java es el principal lenguaje de programación y plataforma de desarrollo. Reduce costos, disminuye los tiempos de desarrollo, fomenta la innovación y mejora los servicios de las aplicaciones. Java sigue siendo la plataforma de desarrollo que eligen las empresas y los desarrolladores. 
+
+## 👀 Want to learn more?
+
+[Our documentation](https://www.java.com/es/)
 
